@@ -5,7 +5,7 @@ APP=$1
 ENVIRONMENT=$2
 
 # This is the IP of the Salt Master
-SALT_MASTER_IP=192.168.3.230
+SALT_MASTER_IP=172.31.13.129
 
 # Add the Salt Master IP to our hosts file
 # and alias as salt, so the salt minion file
