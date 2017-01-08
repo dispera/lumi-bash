@@ -45,19 +45,24 @@ done
 
 
 # Apply the salt state for our Application
-echo "Calling Application: $APP"
+echo "Saltstack: Calling application: $APP"
 salt-call state.apply $APP saltenv=$ENVIRONMENT
 
-# Apply the salt highstate for the choonsen environment.
-echo "Calling Salt Highstate"
+# Apply the salt highstate for the choosen environment.
+echo "Saltstack: Calling $ENVIRONMENT highstate"
 salt-call state.highstate saltenv=$ENVIRONMENT
 
-sudo ln -s /etc/nginx/sites-available/myapp /etc/nginx/sites-enabled
+# We remove nginx default site as it conflicts with our app
+rm /etc/nginx/sites-enabled/default
+
+# We enable our app on nginx
+ln -s /etc/nginx/sites-available/webapp /etc/nginx/sites-enabled
 
 # We start the Gunicorn process for our Application,
 # as we have added it to init with our gunicorn state.
 sudo start webapp
 
-exit 0
+# Restart nginx to apply the changes
+service nginx restart
 
-# sudo gunicorn --bind 0.0.0.0:8000 wsgi:app
+exit 0

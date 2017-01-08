@@ -18,11 +18,13 @@ REGION=sa-east-1
 
 # Example Instance launch:
 # aws ec2 run-instances \
-#   --image-id ami-a73264ce \
+#   --image-id ami-35258228 \
 #   --count 1 \
-#   --instance-type t1.nano \
+#   --instance-type t1.micro \
 #   --key-name diego-key \
-#   --security-groups diego-flask-sg
+#   --security-groups diego-flask-sg \
+#   --user-data "bootstrap.sh blogapp dev > /home/ubuntu/bootstrap.log" \
+#   --region sa-east-1
 
 aws ec2 run-instances \
     --image-id $PRECISE_AMI \
