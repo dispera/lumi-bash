@@ -13,7 +13,7 @@ SECURITY_GROUP=diego-flask-sg
 # The ami-a73264ce is for us-east-1 region,
 # this is for sa-east-1 region. EBS, 64 bit.
 PRECISE_AMI=ami-35258228
-USER_DATA="bootstrap.sh $APP $ENVIRONMENT > /home/ubuntu/bootstrap.log"
+USER_DATA="bootstrap.sh $APP $ENVIRONMENT"
 REGION=sa-east-1
 
 # Example Instance launch:

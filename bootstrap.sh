@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# We add this so we can save the output of this script
+# to the logs below and to syslog:
+exec > >(tee /var/log/user-data.log|logger -t user-data -s 2>/dev/console) 2>&1
+
 # Get the variables passed as arguments from ec2.sh
 APP=$1
 ENVIRONMENT=$2
