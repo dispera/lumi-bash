@@ -52,9 +52,7 @@ Output Files:
 
 Example:
 --------
-'''bash
 ./ec2.sh blogapp dev 2 t1.micro
-'''
 
 What this will do is:
 * Launch 2 instances of type/size t1.micro
