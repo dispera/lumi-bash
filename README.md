@@ -60,3 +60,4 @@ What this will do is:
 state.highstate, it will use the top.sls file on /srv/salt/dev.
 * Use the <app> argument, in this case 'blogapp', to know which
 state to apply - thus, which app we want to deploy and serve.
+The other available option is 'helloapp'.
