@@ -11,6 +11,9 @@
 # After launching the instances, we get their public IPs
 # as output so we can connect to the webapp page.
 
+# Note: you need to have your key file (diego-key.pem)
+# on the same directory as this script.
+
 # The arguments passed to the script will be:
 # <app> <environment> <num_servers> <instance_type>
 
