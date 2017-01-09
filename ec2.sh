@@ -56,10 +56,6 @@ echo "\$SALT_MASTER_IP salt" >> /etc/hosts
 # the internet so all requests would be from our AWS VPC.
 
 # Get latest salt bootstrap script and install saltstack
-
-mkdir -p /etc/salt/
-touch /etc/salt/minion
-
 curl -L https://bootstrap.saltstack.com | sh
 
 # Wait for salt to finish installing and for the minion
@@ -125,13 +121,16 @@ echo "AWS Instances creation and bootstrap is in progress..."
 echo "Waiting a minute for the public IPs"
 sleep 60
 
+# We filter the IDs of our launched instances.
 cat aws_run_log | grep InstanceId | cut -d ':' -f2 | cut -d '"' -f2 > instance_id_list
 
 echo
 echo "This are the public IPs of the EC2 instances:"
+rm instance_ip_list 2>/dev/null
 while read ID; do
   aws ec2 describe-instances --instance-ids $ID \
-  | grep PublicIpAddress | cut -d ':' -f2 | cut -d '"' -f2
+  | grep PublicIpAddress | cut -d ':' -f2 | cut -d '"' -f2 \
+  >> instance_ip_list
 done <instance_id_list
 
 echo

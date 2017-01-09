@@ -25,10 +25,17 @@ For authentication, we use a private key associated to the instances
 at the moment of creation (here called diego-key), which needs to be
 on the same directory as this script.
 
-Related Files:
+Related Repositories:
 --------------
 - The SaltStack formulas are on repository lumi-saltstack.
 - The Flask apps are on repository lumi-webapps.
+
+Output Files:
+------------------------------------------------
+* aws_run_log (the log of the ec2 instances launch output)
+* bootstrap.sh (the script passed as user-data to the aws run-instances)
+* instance_id_list (this is the list of instance IDs)
+* instance_ip_list (this is the list of instance IPs)
 
 Example:
 --------
