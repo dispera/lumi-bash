@@ -122,8 +122,8 @@ aws ec2 run-instances \
     > aws_run_log
 
 echo "AWS Instances creation and bootstrap is in progress..."
-echo "Waiting 5 minutes for the public IPs and for the webapp to start"
-sleep 300
+echo "Waiting a minute for the public IPs"
+sleep 60
 
 cat aws_run_log | grep InstanceId | cut -d ':' -f2 | cut -d '"' -f2 > instance_id_list
 
@@ -132,3 +132,10 @@ while read ID; do
   aws ec2 describe-instances --instance-ids $ID \
   | grep PublicIpAddress | cut -d ':' -f2 | cut -d '"' -f2
 done <instance_id_list
+
+echo
+echo "Now you should wait about 5 more minutes for the"
+echo "salt bootstrap to complete and for the webapp to start."
+sleep 300
+echo "All should be up by now, please go ahead and test."
+exit 0
