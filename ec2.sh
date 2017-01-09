@@ -107,12 +107,12 @@ aws ec2 run-instances \
     --region $REGION \
     > aws_run_log
 
-echo "AWS Instance creation is in progress... waiting 5 minutes for the public IPs"
-sleep 300
+echo "AWS Instance creation is in progress... waiting 3 minutes for the public IPs"
+sleep 180
 
 cat aws_run_log | grep InstanceId | cut -d ':' -f2 | cut -d '"' -f2 > instance_id_list
 
-echo "\nThis are the public IPs of the EC2 instances:"
+echo "This are the public IPs of the EC2 instances:"
 while read ID; do
   aws ec2 describe-instances --instance-ids $ID \
   | grep PublicIpAddress | cut -d ':' -f2 | cut -d '"' -f2
