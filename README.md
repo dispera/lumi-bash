@@ -1,11 +1,10 @@
 # lumi-bash
+![Bash](https://tiswww.case.edu/php/chet/img/bash-logo-web.png "BASH")
+
 Introduction
 ------------
 This is our bash script to launch and bootstrap AWS instances
 with Salt, Flask, GUnicorn, Nginx and start your Web App!
-
-The SaltStack formulas are on repository lumi-saltstack
-The Flask apps are on repository lumi-webapps
 
 The whole idea is that you can launch EC2 instances, and then
 bootstrap the instance with saltstack (install salt, configure
@@ -26,9 +25,16 @@ For authentication, we use a private key associated to the instances
 at the moment of creation (here called diego-key), which needs to be
 on the same directory as this script.
 
+Related Files:
+--------------
+- The SaltStack formulas are on repository lumi-saltstack.
+- The Flask apps are on repository lumi-webapps.
+
 Example:
 --------
-  ./ec2.sh blogapp dev 2 t1.micro
+'''bash
+./ec2.sh blogapp dev 2 t1.micro
+'''
 
 What this will do is:
 - a) Launch 2 instances of type/size t1.micro
