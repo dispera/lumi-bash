@@ -14,10 +14,12 @@ a webapp served with nginx.
 The called salt states will:
 ----------------------------
 * Install flask.
+* Configure our flask webapp.py app.
 * Install gunicorn.
-* Configure the wsgi.pi app file.
-* Add a gunicorn webapp.conf file to init which will run our app as a process.
-We will be able to stop and start it with 'start webapp' or 'stop webapp'.
+* Configure the wsgi.py app file which just imports the flask app to gunicorn.
+* Add a gunicorn webapp.conf file to init which will run the wsgi app as a
+process. We will be able to start and stop it with 'start webapp' and
+'stop webapp'.
 * Install nginx
 * Configure nginx to listen on port 80 and serve on / the web app
 running as the gunicorn unix process.
