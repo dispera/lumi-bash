@@ -132,6 +132,7 @@ while read ID; do
   | grep PublicIpAddress | cut -d ':' -f2 | cut -d '"' -f2 \
   >> instance_ip_list
 done <instance_id_list
+cat instance_ip_list
 
 echo
 echo "Now you should wait about 5 more minutes for the"
