@@ -127,6 +127,7 @@ sleep 60
 
 cat aws_run_log | grep InstanceId | cut -d ':' -f2 | cut -d '"' -f2 > instance_id_list
 
+echo
 echo "This are the public IPs of the EC2 instances:"
 while read ID; do
   aws ec2 describe-instances --instance-ids $ID \
@@ -137,5 +138,6 @@ echo
 echo "Now you should wait about 5 more minutes for the"
 echo "salt bootstrap to complete and for the webapp to start."
 sleep 300
+echo
 echo "All should be up by now, please go ahead and test."
 exit 0
