@@ -11,6 +11,17 @@ bootstrap the instance with saltstack (install salt, configure
 the minion, connect to master, call the desired states and start
 a webapp served with nginx.
 
+The called salt states will:
+----------------------------
+* Install flask.
+* Install gunicorn.
+* Configure the wsgi.pi app file.
+* Add a gunicorn webapp.conf file to init which will run our app as a process.
+We will be able to stop and start it with 'start webapp' or 'stop webapp'.
+* Install nginx
+* Configure nginx to listen on port 80 and serve on / the web app
+running as the gunicorn unix process.
+
 After the launch instance phase, we get their public IPs
 as output so we can connect to the webapp page right then!!
 

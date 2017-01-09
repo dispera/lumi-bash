@@ -135,8 +135,8 @@ done <instance_id_list
 cat instance_ip_list
 
 echo
-echo "Now you should wait about 5 more minutes for the"
-echo "salt bootstrap to complete and for the webapp to start."
+echo "Now we should wait about 5 more minutes for the"
+echo "salt bootstrap to complete and for the webapp to start..."
 sleep 300
 echo
 echo "All should be up by now, please go ahead and test."
