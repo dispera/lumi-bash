@@ -1,5 +1,16 @@
 #!/bin/bash
 
+# This script has been created under an MIT License.
+# Copyright 2017 Diego Spera.
+
+# The whole idea is to launch EC2 instances, and then
+# bootstrap the instance with saltstack.
+# That is, install salt, configure the minion,
+# connect to master, call the desired states and start
+# the webapp.
+# After launching the instances, we get their public IPs
+# as output so we can connect to the webapp page.
+
 # The arguments passed to the script will be:
 # <app> <environment> <num_servers> <instance_type>
 
