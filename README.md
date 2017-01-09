@@ -18,7 +18,8 @@ AWS account.
 
 Authentication:
 For authentication, we use a private key associated to the instances
-at the moment of creation (here called diego-key).
+at the moment of creation (here called diego-key), which needs to be
+on the same directory as this script.
 
 Example:
     ./ec2.sh blogapp dev 2 t1.micro

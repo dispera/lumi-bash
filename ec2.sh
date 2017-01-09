@@ -121,8 +121,9 @@ aws ec2 run-instances \
     --region $REGION \
     > aws_run_log
 
-echo "AWS Instance creation is in progress... waiting 3 minutes for the public IPs"
-sleep 180
+echo "AWS Instances creation and bootstrap is in progress..."
+echo "Waiting 5 minutes for the public IPs and for the webapp to start"
+sleep 300
 
 cat aws_run_log | grep InstanceId | cut -d ':' -f2 | cut -d '"' -f2 > instance_id_list
 
